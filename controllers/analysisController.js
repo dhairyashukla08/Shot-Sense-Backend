@@ -1,5 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const Analysis = require('../models/analysis.js');
+const Analysis = require('../models/Analysis.js');
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
