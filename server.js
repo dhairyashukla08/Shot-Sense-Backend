@@ -16,9 +16,13 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI,{serverSelectionTimeoutMS: 5000,family: 4,})
   .then(() => console.log("✅ MongoDB Connected"))
   .catch(err => console.error("❌ MongoDB Error:", err));
+
+  mongoose.connection.on('error', err => {
+  console.error('🔴 Mongoose runtime error:', err);
+});
 
 app.use('/api', analysisRoutes);
 

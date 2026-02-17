@@ -12,7 +12,7 @@ exports.analyzeImage = async (req, res) => {
     const base64Data = image.includes(',') ? image.split(",")[1] : image;
     const mimeType = image.includes(',') ? image.split(";")[0].split(":")[1] : 'image/jpeg';
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); 
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); 
 
     const prompt = `You are a professional photography analyst. Analyze this photograph and provide detailed insights.
 
