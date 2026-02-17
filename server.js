@@ -7,8 +7,10 @@ const analysisRoutes = require('./routes/analysisRoutes.js');
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'], 
-  credentials: true
+  origin: ['http://localhost:5173', 'http://localhost:3000', 'https://shot-sense-ai.netlify.app'], 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json({ limit: '10mb' }));
